@@ -1,0 +1,39 @@
+eureka:
+    client:
+        instance:
+            hostname: ${spring.cloud.client.ip-address}
+            instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+            prefer-ip-address: true
+        service-url:
+            defaultZone: http://peer:8761/eureka/,http://peer:8762/eureka/
+management:
+    endpoint:
+        bus-env:
+            enabled: true
+        bus-refresh:
+            enabled: true
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: bus-refresh
+server:
+    port: 10001
+spring:
+    application:
+        name: config
+    cloud:
+        config:
+            server:
+                git:
+                    default-label: master
+                    password:
+                    search-paths:
+                    uri: https://github.com/zlz1998/SpringCloudConfig/
+                    username:
+    rabbitmq:
+        host: 192.168.43.140
+        password: guest
+        port: 5672
+        username: guest

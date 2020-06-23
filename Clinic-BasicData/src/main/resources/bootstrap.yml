@@ -1,0 +1,5 @@
+spring:
+  cloud:
+    config:
+      uri: http://peer:10001
+      profile: dev

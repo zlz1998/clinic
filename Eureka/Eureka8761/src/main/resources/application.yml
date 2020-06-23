@@ -1,0 +1,12 @@
+eureka:
+    client:
+        fetch-registry: false
+        register-with-eureka: false
+    instance:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        prefer-ip-address: true
+spring:
+    application:
+        name: eureka
+    profiles:
+        active: one
